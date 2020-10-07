@@ -3,9 +3,9 @@
 # Token Check: This script validates a physical device, like a USB drive, is plugged into the workstation
 # while it is running. When removed, the machine shutsdown automatically.
 #
-tokenpath="/dev/disk/by-id/usb-General_USB_Flash_Disk_08320000000034E4-0:0"
+tokenpath="/dev/disk/by-id/usb-General_USB_Flash_Disk_08320000000034E4-0:0" 			# Your device id will vary
 if [ ! -L $tokenpath ]; then
-	echo "$(date) -- KEY NOT FOUND. Starting shutdown sequence." >> cron.log
+	echo "$(date) -- KEY NOT FOUND. Starting shutdown sequence." >> cron.log		# I like logs. You don't have to log though.
 	sudo shutdown -h now;
 else
 	echo "$(date) -- KEY FOUND." >> cron.log
